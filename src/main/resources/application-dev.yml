@@ -1,0 +1,11 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# Overriding logic applicable here,
+# for example application-dev.yml if you use the "dev" profile.
+# ===================================================================
+
+# ===================================================================
+# Reference for command spring boot properties can be found at
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================

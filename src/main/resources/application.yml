@@ -1,0 +1,52 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# Overriding logic applicable here,
+# for example application-dev.yml if you use the "dev" profile.
+# ===================================================================
+
+# ===================================================================
+# Reference for command spring boot properties can be found at
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+
+
+
+spring:
+  application:
+    name: commute-directions-service
+  profiles:
+    active: defautl
+
+management:
+  context-path: /management
+
+
+security:
+  oauth2:
+   resource:
+      userInfoUri: http://localhost:8901/auth/user
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+
+# ===================================================================
+# Commute specific properties
+# ===================================================================
+
+commute:
+  security:
+    apiKeyBased:
+      googleMaps:
+        apiKey: AIzaSyCWDaXXXXXXXXmOgUk4Z9My60BysEpM68
+  swagger:
+    title: Routing API
+    description: Swagger API Documentation of 'Routing'
+    enabled: true
