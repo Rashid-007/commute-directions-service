@@ -7,10 +7,11 @@ import com.google.maps.model.DirectionsRoute;
 import com.commute.direction.application.GoogleMapsClient;
 import com.commute.direction.infrastructure.gateway.googlemaps.api.GoogleMapsApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+@Service
 public class GoogleMapsGateway implements GoogleMapsClient {
     private GoogleMapsApi api;
 

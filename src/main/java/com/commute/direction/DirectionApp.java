@@ -1,8 +1,10 @@
 package com.commute.direction;
 
+import com.commute.direction.cfg.SystemProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
@@ -12,6 +14,7 @@ import java.net.UnknownHostException;
 @SpringBootApplication
 @Slf4j
 @EnableResourceServer
+@EnableConfigurationProperties(SystemProperties.class)
 public class DirectionApp {
 
     /**

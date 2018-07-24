@@ -11,8 +11,6 @@
 # ===================================================================
 
 
-
-
 spring:
   application:
     name: commute-directions-service
@@ -26,7 +24,7 @@ management:
 security:
   oauth2:
    resource:
-      userInfoUri: http://localhost:8901/auth/user
+      userInfoUri: http://localhost:8901/auth/api/v1/user
 
 eureka:
   instance:
