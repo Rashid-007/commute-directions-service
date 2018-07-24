@@ -45,6 +45,6 @@ commute:
       googleMaps:
         apiKey: AIzaSyCWDamT6BE23lGmOgUk4Z9My60BysEpM68
   swagger:
-    title: Routing API
-    description: Swagger API Documentation of 'Routing'
+    title: Direction API
+    description: Swagger API Documentation of Direction
     enabled: true
