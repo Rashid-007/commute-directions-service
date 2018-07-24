@@ -8,17 +8,15 @@ import java.time.LocalDateTime;
 
 @Builder
 @ToString
+@Getter
 public class Departure {
 
-    private LocalDateTime time;
-    @Getter
+
     private String address;
-    @Getter
+
     private GeoPoint location;
-    @Getter
+
     private Transport transport;
 
-    public String getTime(){
-        return this.time.toString();
-    }
+
 }

@@ -4,6 +4,8 @@ import com.commute.direction.application.DirectionApplicationService;
 import com.commute.direction.domain.GeoPoint;
 import com.commute.direction.domain.Route;
 import com.commute.direction.domain.TransportType;
+import com.commute.direction.web.rest.v1.dto.RouteDto;
+import com.commute.direction.web.rest.v1.mapper.RouteMapper;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +35,7 @@ public class DirectionResource {
     @ApiOperation(value = "Calculates routes based on query parameters")
     @RequestMapping(value = "/routes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 
-    public ResponseEntity<Route> calculateRoute(
+    public ResponseEntity<RouteDto> calculateRoute(
 
             @ApiParam(value = "A Geopoint with comma separated latitude and longitude i.e 52.515380,13.391013") @RequestParam(value = "origin",
                     required = true) String origin,
@@ -44,7 +46,7 @@ public class DirectionResource {
                     defaultValue = ROUTING_DEFUAULT_MODE) String transportType) {
 
         Route directionsResult = directionApplicationService.getRoutes(GeoPoint.parse(origin), GeoPoint.parse(destination), TransportType.getValue(transportType));
-
-        return ResponseEntity.ok(directionsResult);
+      RouteDto dto = RouteMapper.getDto(directionsResult);
+      return ResponseEntity.ok(dto);
     }
 }

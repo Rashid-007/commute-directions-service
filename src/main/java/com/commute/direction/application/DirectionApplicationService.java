@@ -31,22 +31,24 @@ public class DirectionApplicationService {
                 route = Route.builder()
                         .id(UUID.randomUUID())
                         .segment(drivingDirections)
-                        .transfers(0).build();
+                        .build();
+                break;
             case PUBLIC:
                 RouteSegment transitDirections = googleMapsClient.getTransitDirections(origin, destination, DateTime.now().toString());
                 route = Route.builder()
                         .id(UUID.randomUUID())
                         .segment(transitDirections)
-                        .transfers(0).build();
+                        .build();
+                break;
 
             case WALKING:
                 RouteSegment walkingDirections = googleMapsClient.getWalkingDirections(origin, destination);
                 route = Route.builder()
                         .id(UUID.randomUUID())
                         .segment(walkingDirections)
-                        .transfers(0).build();
+                        .build();
+                break;
             case DEFAULT:
-                return null;
         }
         return route;
     }

@@ -1,5 +1,6 @@
 package com.commute.direction.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,12 +15,4 @@ public class Route {
 
     private UUID id;
     private RouteSegment segment;
-    private int transfers;
-    private Duration duration;
-
-    private Departure departure;
-    private Arrival arrival;
-
-    private List<Fare> fares;
-
 }

@@ -76,8 +76,8 @@ public class GoogleMapsGateway implements GoogleMapsClient {
         //@formatter:on
 
         setSegmentFields(segmentBuilder, transport, directionsResult.routes[0]);
-
-        return segmentBuilder.build();
+      RouteSegment segment = segmentBuilder.build();
+      return segment;
     }
 
     private void setSegmentFields(RouteSegment.RouteSegmentBuilder segmentBuilder, Transport transport, DirectionsRoute route) {
@@ -115,7 +115,6 @@ public class GoogleMapsGateway implements GoogleMapsClient {
 
             //@formatter:off
             Departure departure = Departure.builder()
-                    .time(LocalDateTime.parse(leg.departureTime.toLocalDateTime().toString()))
                     .address(leg.startAddress)
                     .location(new GeoPoint(leg.startLocation.lat, leg.startLocation.lng))
                     .transport(transport)
@@ -127,7 +126,6 @@ public class GoogleMapsGateway implements GoogleMapsClient {
                     .build();
 
             Arrival arrival = Arrival.builder()
-                    .time(LocalDateTime.parse(leg.arrivalTime.toLocalDateTime().toString()))
                     .address(leg.endAddress)
                     .location(new GeoPoint(leg.endLocation.lat, leg.endLocation.lng))
                     .build();

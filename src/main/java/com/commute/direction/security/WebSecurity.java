@@ -10,7 +10,7 @@ public class WebSecurity extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests()
-                .antMatchers("/v1/organizations/**")
+                .antMatchers("/api/v1/**")
                 .hasRole("USER")
                 .anyRequest()
                 .authenticated();
