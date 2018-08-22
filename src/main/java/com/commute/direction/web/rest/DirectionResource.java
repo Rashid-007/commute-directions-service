@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 public class DirectionResource {
 
-    private static final String ROUTING_DEFUAULT_MODE = "default";
+    private static final String ROUTING_DEFUAULT_MODE = "CAR";
 
     private DirectionApplicationService directionApplicationService;
 

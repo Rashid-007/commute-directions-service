@@ -1,11 +1,21 @@
 # ===================================================================
-# Spring Boot configuration.
+# Spring Boot configuration for the "dev" profile.
 #
-# Overriding logic applicable here,
-# for example application-dev.yml if you use the "dev" profile.
+# This configuration overrides the test-application-default-profile.yml file.
 # ===================================================================
 
 # ===================================================================
-# Reference for command spring boot properties can be found at
+# Standard Spring Boot properties.
+# Full reference is available at:
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/

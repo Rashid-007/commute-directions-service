@@ -6,16 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @SpringBootApplication
 @Slf4j
-@EnableResourceServer
 @EnableConfigurationProperties(SystemProperties.class)
-public class DirectionApp {
+public class CommuteDirectionsServiceApp {
 
     /**
      * default entry point
@@ -25,7 +23,7 @@ public class DirectionApp {
      */
     @SuppressWarnings("squid:S1313") // IP addresses should not be hardcoded => In this case it is ok
     public static void main(String[] args) throws UnknownHostException {
-        SpringApplication app = new SpringApplication(DirectionApp.class);
+        SpringApplication app = new SpringApplication(CommuteDirectionsServiceApp.class);
         Environment env = app.run(args).getEnvironment();
 
         log.info(

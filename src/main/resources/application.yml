@@ -9,7 +9,8 @@
 # Reference for command spring boot properties can be found at
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
-
+server:
+  port: ${vcap.application.port:8082}
 
 spring:
   application:
@@ -21,10 +22,10 @@ management:
   context-path: /management
 
 
-security:
-  oauth2:
-   resource:
-      userInfoUri: http://localhost:8901/auth/api/v1/user
+#security:
+#  oauth2:
+#   resource:
+#      userInfoUri: http://localhost:8901/auth/api/v1/user
 
 eureka:
   instance:
@@ -43,7 +44,9 @@ commute:
   security:
     apiKeyBased:
       googleMaps:
-        apiKey: AIzaSyCWDamT6BE23lGmOgUk4Z9My60BysEpM68
+        apiKey: AIzaSyBVelzd5H3ZerRtIJhi6aCbH6qgUQivkF8
+
+
   swagger:
     title: Direction API
     description: Swagger API Documentation of Direction

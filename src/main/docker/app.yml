@@ -1,0 +1,17 @@
+version: '2'
+services:
+  commute-directions-service:
+    image: dockerxya/commute-directions-service
+    external_links:
+      - commute-service-discovery:discovery
+      - commute-auth-service:authentication
+    environment:
+      - SECURITY_OAUTH2_RESOURCE_USERINFOURI=http://authentication:8080/auth/api/v1/user
+      - SPRING_APPLICATION_JSON={"spring":{"datasource":{"username":"commute","password":"Sekr8t"},"profiles":{"active":"prod"}},"vcap":{"services":{"commute-service-discovery":{"credentials":{"uri":"http://commute-dev:admin@discovery:8080"}}}}}
+    ports:
+      - 8082:8080
+      - 8002:8000 # Port for remote debugging such as on IDE
+  communite-service-discovery:
+    extends:
+      file: service-discovery.yml
+      service: communute-service-discovery

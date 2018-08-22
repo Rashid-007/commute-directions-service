@@ -6,10 +6,13 @@ import com.commute.direction.web.rest.v1.dto.RouteDto;
 public class RouteMapper {
 
   public static RouteDto getDto(Route route){
-    RouteDto dto = RouteDto.builder().id(route.getId())
-      .segment(route.getSegment())
-      .build();
+    if(route != null){
+      RouteDto dto = RouteDto.builder().id(route.getId())
+        .segment(route.getSegment())
+        .build();
 
-    return dto;
+      return dto;
+    }
+    throw new IllegalArgumentException("No route found");
   }
 }
